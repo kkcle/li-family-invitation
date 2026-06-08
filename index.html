@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>李氏宗祠竣工庆典邀请函</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+  background: #8b1a1a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(212,168,67,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(212,168,67,0.1) 0%, transparent 50%);
+}
+
+.container {
+  max-width: 420px;
+  width: 100%;
+  background: linear-gradient(180deg, #fffef5 0%, #fff9e6 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 0 0 2px #d4a843, 0 0 0 5px #8b1a1a, 0 0 0 7px #d4a843;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 顶部装饰边框 */
+.header-border {
+  height: 8px;
+  background: linear-gradient(90deg,
+    #8b1a1a 0%, #c41e2a 20%, #d4a843 50%, #c41e2a 80%, #8b1a1a 100%);
+}
+
+/* ========== 头部 ========== */
+.header {
+  background: linear-gradient(180deg, #c41e2a 0%, #a01820 100%);
+  padding: 20px 16px 16px;
+  text-align: center;
+  position: relative;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(255,255,255,0.02) 8px, rgba(255,255,255,0.02) 9px);
+  pointer-events: none;
+}
+
+.header-icon {
+  font-size: 36px;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.header h1 {
+  font-family: "STSong", "SimSun", "Songti SC", "Noto Serif CJK SC", serif;
+  font-size: 26px;
+  color: #ffd700;
+  letter-spacing: 4px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.header .subtitle {
+  font-size: 14px;
+  color: #ffe4b5;
+  letter-spacing: 6px;
+  margin-top: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.header .seal {
+  display: inline-block;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  padding: 4px 10px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-top: 8px;
+  transform: rotate(-3deg);
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== Tab 导航 ========== */
+.tabs {
+  display: flex;
+  background: #fdf5e6;
+  border-bottom: 2px solid #d4a843;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 14px 4px;
+  text-align: center;
+  font-size: 15px;
+  color: #8b1a1a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  font-family: inherit;
+  outline: none;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: #c41e2a;
+  transition: width 0.3s;
+}
+
+.tab-btn.active {
+  color: #c41e2a;
+  font-weight: bold;
+  background: #fffef5;
+}
+
+.tab-btn.active::after {
+  width: 70%;
+}
+
+.tab-emoji {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+/* ========== 内容区 ========== */
+.content {
+  padding: 20px 16px 24px;
+  min-height: 320px;
+}
+
+.panel {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== 封面面板 ========== */
+.cover-title {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.cover-title h2 {
+  font-family: "STSong", "SimSun", "Songti SC", "Noto Serif CJK SC", serif;
+  font-size: 24px;
+  color: #c41e2a;
+  letter-spacing: 4px;
+  line-height: 1.6;
+}
+
+.cover-ornament {
+  text-align: center;
+  color: #d4a843;
+  font-size: 18px;
+  letter-spacing: 8px;
+  margin: 12px 0;
+}
+
+.couplet-box {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+  justify-content: center;
+}
+
+.couplet-col {
+  writing-mode: vertical-rl;
+  background: linear-gradient(180deg, #c41e2a, #8b1a1a);
+  color: #ffd700;
+  padding: 16px 10px;
+  font-family: "STSong", "SimSun", "Songti SC", "Noto Serif CJK SC", serif;
+  font-size: 18px;
+  letter-spacing: 4px;
+  border: 2px solid #d4a843;
+  border-radius: 2px;
+  text-align: center;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.couplet-horizontal {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.couplet-horizontal span {
+  display: inline-block;
+  background: linear-gradient(180deg, #c41e2a, #8b1a1a);
+  color: #ffd700;
+  padding: 8px 16px;
+  font-family: "STSong", "SimSun", "Songti SC", "Noto Serif CJK SC", serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+  border: 2px solid #d4a843;
+  border-radius: 2px;
+}
+
+.invite-text {
+  text-align: center;
+  font-size: 15px;
+  color: #5a1a1a;
+  line-height: 2;
+  margin: 16px 0;
+}
+
+.invite-text strong {
+  color: #c41e2a;
+  font-size: 17px;
+}
+
+/* ========== 宗祠面板 ========== */
+.hall-image {
+  width: 100%;
+  border-radius: 4px;
+  border: 3px solid #d4a843;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  display: block;
+}
+
+.hall-caption {
+  text-align: center;
+  color: #8b1a1a;
+  font-size: 14px;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
+/* ========== 时间面板 ========== */
+.time-card {
+  background: linear-gradient(135deg, #fffef5, #fff9e6);
+  border: 2px solid #d4a843;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.time-item {
+  margin: 18px 0;
+}
+
+.time-label {
+  font-size: 13px;
+  color: #8b1a1a;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+}
+
+.time-label .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: #d4a843;
+  border-radius: 50%;
+  margin: 0 6px;
+  vertical-align: middle;
+}
+
+.time-value {
+  font-family: "STSong", "SimSun", "Songti SC", "Noto Serif CJK SC", serif;
+  font-size: 22px;
+  color: #c41e2a;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.time-divider {
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4a843, transparent);
+  margin: 0 auto;
+}
+
+/* ========== 地点面板 ========== */
+.location-card {
+  background: linear-gradient(135deg, #fffef5, #fff9e6);
+  border: 2px solid #d4a843;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.location-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.location-name {
+  font-family: "STSong", "SimSun", "Songti SC", "Noto Serif CJK SC", serif;
+  font-size: 20px;
+  color: #c41e2a;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 1.8;
+}
+
+.location-note {
+  font-size: 13px;
+  color: #8b1a1a;
+  margin-top: 12px;
+  letter-spacing: 1px;
+}
+
+/* ========== 底部 ========== */
+.footer {
+  background: linear-gradient(0deg, #c41e2a 0%, #a01820 100%);
+  padding: 14px 16px;
+  text-align: center;
+  color: #ffd700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+}
+
+.footer .family {
+  font-family: "STSong", "SimSun", "Songti SC", "Noto Serif CJK SC", serif;
+  font-size: 17px;
+  letter-spacing: 4px;
+}
+
+/* ========== 底部装饰 ========== */
+.bottom-border {
+  height: 8px;
+  background: linear-gradient(90deg,
+    #8b1a1a 0%, #c41e2a 20%, #d4a843 50%, #c41e2a 80%, #8b1a1a 100%);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header-border"></div>
+
+  <!-- 头部 -->
+  <div class="header">
+    <div class="header-icon">🏯</div>
+    <h1>李氏宗祠竣工庆典</h1>
+    <div class="subtitle">～ 邀 请 函 ～</div>
+    <div class="seal">荣 邀</div>
+  </div>
+
+  <!-- Tab 导航 -->
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="cover">
+      <span class="tab-emoji">📜</span>封面
+    </button>
+    <button class="tab-btn" data-tab="photo">
+      <span class="tab-emoji">🏛️</span>宗祠
+    </button>
+    <button class="tab-btn" data-tab="time">
+      <span class="tab-emoji">📅</span>时间
+    </button>
+    <button class="tab-btn" data-tab="location">
+      <span class="tab-emoji">📍</span>地点
+    </button>
+  </nav>
+
+  <!-- 内容区 -->
+  <div class="content">
+
+    <!-- 封面 -->
+    <div class="panel active" id="panel-cover">
+      <div class="cover-title">
+        <h2>李氏宗族<br>祖堂竣工庆典</h2>
+      </div>
+      <div class="cover-ornament">◆ ◇ ◆ ◇ ◆</div>
+      <div class="invite-text">
+        <strong>谨定于</strong><br>
+        公历二〇二六年六月十一日<br>
+        农历四月二十六（星期四）<br>
+        中午十二时<br>
+        <strong>敬备薄酌　恭候光临</strong>
+      </div>
+      <div class="cover-ornament">◆ ◇ ◆ ◇ ◆</div>
+
+      <div class="couplet-horizontal">
+        <span>祖堂竣工誌庆</span>
+      </div>
+      <div class="couplet-box">
+        <div class="couplet-col">新祠鼎建千秋业</div>
+        <div class="couplet-col">祖德长昭万代兴</div>
+      </div>
+    </div>
+
+    <!-- 宗祠图片 -->
+    <div class="panel" id="panel-photo">
+      <img class="hall-image" src="zutang.jpg" alt="李氏宗祠">
+      <div class="hall-caption">🏯 李氏宗祠新貌</div>
+    </div>
+
+    <!-- 时间 -->
+    <div class="panel" id="panel-time">
+      <div class="time-card">
+        <div class="time-item">
+          <div class="time-label"><span class="dot"></span>公 历<span class="dot"></span></div>
+          <div class="time-value">2026年6月11日</div>
+          <div style="font-size:13px;color:#8b1a1a;margin-top:2px;">星期四</div>
+        </div>
+        <div class="time-divider"></div>
+        <div class="time-item">
+          <div class="time-label"><span class="dot"></span>农 历<span class="dot"></span></div>
+          <div class="time-value">四月二十六</div>
+        </div>
+        <div class="time-divider"></div>
+        <div class="time-item">
+          <div class="time-label"><span class="dot"></span>开席时间<span class="dot"></span></div>
+          <div class="time-value">中午 12:00</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 地点 -->
+    <div class="panel" id="panel-location">
+      <div class="location-card">
+        <div class="location-icon">🏠</div>
+        <div class="location-name">
+          宴会地点<br>
+          李永勤 · 李忠火 家
+        </div>
+        <div class="location-note">
+          （详细地址待补充）
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <div class="family">李氏宗族 敬邀</div>
+    <div>新祠鼎建千秋业 · 祖德长昭万代兴</div>
+  </div>
+
+  <div class="bottom-border"></div>
+</div>
+
+<script>
+(function() {
+  var btns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.panel');
+
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var tab = this.getAttribute('data-tab');
+
+      btns.forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+
+      panels.forEach(function(p) { p.classList.remove('active'); });
+      document.getElementById('panel-' + tab).classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
